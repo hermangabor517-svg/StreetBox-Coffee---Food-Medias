@@ -1163,9 +1163,9 @@
         }
 
         /* Înălțime stabilă când bara browserului mobil se retrage. */
-        @supports (height: 100svh) {
+        @supports (height: 100dvh) {
             :root {
-                --hero-viewport: 100svh;
+                --hero-viewport: 100dvh;
             }
         }
 
@@ -1450,6 +1450,11 @@
             .zoom-stage {
                 will-change: auto;
             }
+        }
+        html,
+        body{
+            overflow-x: clip;
+            overflow-y: visible;
         }
     </style>
 </head>
