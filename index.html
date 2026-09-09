@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ro">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -233,11 +234,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: radial-gradient(
-                circle,
-                rgba(168, 230, 0, .15),
-                transparent 60%
-            );
+            background: radial-gradient(circle,
+                    rgba(168, 230, 0, .15),
+                    transparent 60%);
         }
 
         .about-image h3 {
@@ -431,15 +430,11 @@
 
         .order-section {
             background:
-                linear-gradient(
-                    rgba(0, 0, 0, .85),
-                    rgba(0, 0, 0, .95)
-                ),
-                radial-gradient(
-                    circle at center,
+                linear-gradient(rgba(0, 0, 0, .85),
+                    rgba(0, 0, 0, .95)),
+                radial-gradient(circle at center,
                     rgba(168, 230, 0, .18),
-                    transparent 60%
-                );
+                    transparent 60%);
             text-align: center;
         }
 
@@ -851,6 +846,20 @@
                 padding-bottom: 8px;
             }
 
+            .zoom-stage {
+                background: #0b0b0b;
+            }
+
+            .zoom-stage::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                z-index: 4;
+                background: #0b0b0b;
+                opacity: var(--blackout, 0);
+                pointer-events: none;
+            }
+
             .menu-tab {
                 flex-shrink: 0;
                 padding: 11px 20px;
@@ -892,6 +901,7 @@
             .section-title h2 {
                 font-size: 36px;
             }
+
         }
 
         /* ANIMAȚIILE SECȚIUNILOR */
@@ -1008,12 +1018,10 @@
             left: -120%;
             width: 70%;
             height: 100%;
-            background: linear-gradient(
-                100deg,
-                transparent,
-                rgba(255, 255, 255, .09),
-                transparent
-            );
+            background: linear-gradient(100deg,
+                    transparent,
+                    rgba(255, 255, 255, .09),
+                    transparent);
             transform: skewX(-18deg);
             transition: left .8s ease;
             pointer-events: none;
@@ -1133,6 +1141,7 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
+
             *,
             *::before,
             *::after {
@@ -1184,9 +1193,7 @@
         }
 
         #home.zoom-hero {
-            --hero-height: calc(
-                var(--hero-viewport) - var(--header-height)
-            );
+            --hero-height: calc(var(--hero-viewport) - var(--header-height));
             --zoom-distance: 0px;
 
             position: relative;
@@ -1204,9 +1211,7 @@
         }
 
         #home.zoom-hero.zoom-ready {
-            height: calc(
-                var(--hero-height) + var(--zoom-distance)
-            );
+            height: calc(var(--hero-height) + var(--zoom-distance));
         }
 
         #home::before,
@@ -1236,7 +1241,7 @@
             background-position: center;
             background-size: cover;
 
-            filter: blur(38px) brightness(.42) saturate(.85);
+            filter: blur(98px) brightness(.52) saturate(.85);
             opacity: .75;
 
             pointer-events: none;
@@ -1249,13 +1254,25 @@
             inset: 0;
             z-index: 2;
 
-            background: radial-gradient(
-                ellipse at center,
-                transparent 35%,
-                rgba(5, 5, 5, .25) 72%,
-                #050505 100%
-            );
+            background: radial-gradient(ellipse at center,
+                    transparent 35%,
+                    rgba(5, 5, 5, .25) 72%,
+                    #050505 100%);
 
+            pointer-events: none;
+        }
+
+        .zoom-stage {
+            background: #0b0b0b;
+        }
+
+        .zoom-stage::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 4;
+            background: #0b0b0b;
+            opacity: var(--blackout, 0);
             pointer-events: none;
         }
 
@@ -1266,10 +1283,8 @@
             left: 50%;
 
             /* Imaginea încape întreagă în ecran la început. */
-            width: min(
-                calc(100% - 24px),
-                calc(var(--hero-height) - 56px)
-            );
+            width: min(calc(100% - 24px),
+                    calc(var(--hero-height) - 56px));
 
             height: auto;
             max-width: none;
@@ -1285,38 +1300,30 @@
 
             /* Estompare pe toate cele patru margini. */
             -webkit-mask-image:
-                linear-gradient(
-                    to right,
+                linear-gradient(to right,
                     transparent,
                     #000 5%,
                     #000 95%,
-                    transparent
-                ),
-                linear-gradient(
-                    to bottom,
+                    transparent),
+                linear-gradient(to bottom,
                     transparent,
                     #000 5%,
                     #000 93%,
-                    transparent
-                );
+                    transparent);
 
             -webkit-mask-composite: source-in;
 
             mask-image:
-                linear-gradient(
-                    to right,
+                linear-gradient(to right,
                     transparent,
                     #000 5%,
                     #000 95%,
-                    transparent
-                ),
-                linear-gradient(
-                    to bottom,
+                    transparent),
+                linear-gradient(to bottom,
                     transparent,
                     #000 5%,
                     #000 93%,
-                    transparent
-                );
+                    transparent);
 
             mask-composite: intersect;
 
@@ -1373,12 +1380,8 @@
         }
 
         /* Restul paginii stă sub scenă până la dispariția ei. */
-        .zoom-ready + .site-content {
-            margin-top: calc(
-                -1 * (
-                    var(--hero-viewport) - var(--header-height)
-                )
-            );
+        .zoom-ready+.site-content {
+            margin-top: calc(-1 * (var(--hero-viewport) - var(--header-height)));
         }
 
         /* Header compact inclusiv pe tabletă. */
@@ -1408,9 +1411,7 @@
                 left: 0;
 
                 width: 100%;
-                max-height: calc(
-                    var(--hero-viewport) - var(--header-height)
-                );
+                max-height: calc(var(--hero-viewport) - var(--header-height));
 
                 overflow-y: auto;
                 background: #080808;
@@ -1437,7 +1438,7 @@
                 height: var(--hero-height);
             }
 
-            .zoom-ready + .site-content {
+            .zoom-ready+.site-content {
                 margin-top: 0;
             }
 
@@ -1451,8 +1452,9 @@
                 will-change: auto;
             }
         }
+
         html,
-        body{
+        body {
             overflow-x: clip;
             overflow-y: visible;
         }
@@ -1478,25 +1480,15 @@
             <a href="#comanda" class="order-btn">COMANDĂ ACUM</a>
         </nav>
 
-        <button
-            class="hamburger"
-            type="button"
-            aria-label="Deschide meniul"
-            aria-controls="menu"
-            aria-expanded="false"
-            onclick="toggleMenu()"
-        >
+        <button class="hamburger" type="button" aria-label="Deschide meniul" aria-controls="menu" aria-expanded="false"
+            onclick="toggleMenu()">
             <span aria-hidden="true"></span>
         </button>
     </header>
 
     <!-- HOME CU IMAGINEA ANIMATĂ -->
 
-    <section
-        id="home"
-        class="zoom-hero"
-        aria-labelledby="home-title"
-    >
+    <section id="home" class="zoom-hero" aria-labelledby="home-title">
         <h1 id="home-title" class="sr-only">
             StreetBox Food &amp; Coffee
         </h1>
@@ -1505,17 +1497,9 @@
             <div class="zoom-ambient" aria-hidden="true"></div>
 
             <!-- Pune streetbox.png lângă fișierul index.html. -->
-            <img
-                class="zoom-poster"
-                src="imgs.png"
-                width="1254"
-                height="1254"
-                alt="Gust rapid la pachet! Sandvișuri, hot dog, wrap, cartofi și cafea StreetBox."
-                fetchpriority="high"
-                loading="eager"
-                decoding="async"
-                draggable="false"
-            >
+            <img class="zoom-poster" src="imgs.png" width="1254" height="1254"
+                alt="Gust rapid la pachet! Sandvișuri, hot dog, wrap, cartofi și cafea StreetBox." fetchpriority="high"
+                loading="eager" decoding="async" draggable="false">
 
             <p class="zoom-hint" aria-hidden="true">
                 Derulează
@@ -1568,7 +1552,7 @@
                         <br>
                         • Vrem să afirmăm cu certitudine că
                         ,,<i>Ingredientele noastre sunt de o
-                        calitate bună prin faptul că sunt proaspete".</i>
+                            calitate bună prin faptul că sunt proaspete".</i>
                         <br>
                         • Suntem credincioșii în lucrurile mici precum
                         ,,<i>INGREDIENTELE</i>", ca lucrurile mari
@@ -2384,6 +2368,13 @@
 
                 hint.style.opacity =
                     (1 - smooth(progress / 0.12)).toFixed(4);
+
+
+                const blackout = smooth((progress - 0.56) / 0.18);
+                stage.style.setProperty(
+                    "--blackout",
+                    blackout.toFixed(4)
+                );
             }
 
             function measure() {
@@ -2428,10 +2419,10 @@
 
                 const coverScale = Math.max(
                     stage.clientWidth /
-                        Math.max(1, poster.offsetWidth),
+                    Math.max(1, poster.offsetWidth),
 
                     stage.offsetHeight /
-                        Math.max(1, poster.offsetHeight)
+                    Math.max(1, poster.offsetHeight)
                 );
 
                 maximumScale = Math.max(
@@ -2519,4 +2510,5 @@
     </script>
 
 </body>
+
 </html>
