@@ -1,0 +1,3374 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StreetBox Food&Coffee</title>
+
+    <style>
+        /* =====================================================
+   RESET
+===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #050505;
+            color: white;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =====================================================
+   CULORI
+===================================================== */
+
+        :root {
+            --verde: #a8e600;
+            --negru: #050505;
+            --gri: #151515;
+            --gri2: #222;
+            --alb: #fff;
+        }
+
+
+        /* =====================================================
+   HEADER
+===================================================== */
+
+        header {
+
+            width: 100%;
+            height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            background: rgba(5, 5, 5, .95);
+
+            border-bottom: 1px solid #222;
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 900;
+            font-style: italic;
+        }
+
+        .logo span {
+            color: var(--verde);
+        }
+
+        .logo small {
+            display: block;
+            font-size: 8px;
+            color: var(--verde);
+            text-align: center;
+            letter-spacing: 3px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+        }
+
+        nav a {
+            font-size: 13px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: var(--verde);
+        }
+
+        .order-btn {
+            border: 1px solid var(--verde);
+            color: var(--verde);
+            padding: 11px 22px;
+            border-radius: 30px;
+        }
+
+        .order-btn:hover {
+            background: var(--verde);
+            color: #000;
+        }
+
+        .hamburger {
+            display: none;
+
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid var(--verde);
+            border-radius: 30%;
+
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+            
+        }
+
+        .hamburger span,
+        .hamburger span::before,
+        .hamburger span::after {
+
+            width: 20px;
+            height: 2px;
+
+            background: var(--verde);
+
+            display: block;
+
+            position: relative;
+        }
+
+        .hamburger span::before,
+        .hamburger span::after {
+            content: "";
+            position: absolute;
+            left: 0;
+        }
+
+        .hamburger span::before {
+            top: -7px;
+        }
+
+        .hamburger span::after {
+            top: 7px;
+        }
+
+
+        /* =====================================================
+   ELEMENTE GENERALE
+===================================================== */
+
+        section {
+            padding: 100px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 55px;
+            font-style: italic;
+        }
+
+        .section-title span {
+            color: var(--verde);
+        }
+
+        .section-title p {
+            color: #888;
+            margin-top: 15px;
+        }
+
+
+        /* =====================================================
+   HOME
+===================================================== */
+
+        #home {
+
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle,
+                    rgba(168, 230, 0, .10),
+                    transparent 45%);
+        }
+
+        .home-content {
+            max-width: 900px;
+        }
+
+        .home-title {
+            font-size: clamp(80px, 11vw, 160px);
+            line-height: .8;
+            font-style: italic;
+            font-weight: 900;
+        }
+
+        .home-title span {
+            color: var(--verde);
+        }
+
+        .home-subtitle {
+            margin-top: 40px;
+            color: var(--verde);
+            letter-spacing: 5px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .home-text {
+            max-width: 600px;
+            margin: 25px auto;
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .btn-green {
+            background: var(--verde);
+            color: #000;
+        }
+
+        .btn-green:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(168, 230, 0, .3);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--verde);
+            color: var(--verde);
+        }
+
+        .btn-outline:hover {
+            background: var(--verde);
+            color: #000;
+        }
+
+
+        /* =====================================================
+   DESPRE NOI
+===================================================== */
+
+        #despre {
+            background: #0b0b0b;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 42px;
+            margin-bottom: 25px;
+        }
+
+        .about-text h3 span {
+            color: var(--verde);
+        }
+
+        .about-text p {
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            min-height: 400px;
+
+            border: 1px solid var(--verde);
+
+            border-radius: 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                radial-gradient(circle,
+                    rgba(168, 230, 0, .15),
+                    transparent 60%);
+        }
+
+        .about-image h3 {
+            font-size: 70px;
+            font-style: italic;
+        }
+
+        .about-image span {
+            color: var(--verde);
+        }
+
+
+        /* =====================================================
+   AVANTAJE
+===================================================== */
+
+        .features {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+
+            margin-top: 60px;
+        }
+
+        .feature {
+
+            padding: 35px;
+
+            border: 1px solid #292929;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            background: #101010;
+
+            transition: .3s;
+        }
+
+        .feature:hover {
+            border-color: var(--verde);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 65px;
+            height: 65px;
+
+            margin: auto;
+            margin-bottom: 20px;
+
+            border: 1px solid var(--verde);
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 27px;
+        }
+
+        .feature h3 {
+            margin-bottom: 12px;
+        }
+
+        .feature p {
+            color: #888;
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+   MENIU
+===================================================== */
+
+        #meniu {
+            background: #f5f5f5;
+            color: #111;
+        }
+
+        .menu-tabs {
+
+            display: flex;
+            justify-content: center;
+
+            gap: 15px;
+
+            margin-bottom: 40px;
+
+            flex-wrap: wrap;
+        }
+
+        .menu-tab {
+
+            padding: 10px 22px;
+
+            border: 1px solid #222;
+
+            border-radius: 25px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+        }
+
+        .menu-tab.active,
+        .menu-tab:hover {
+
+            background: var(--verde);
+
+            border-color: var(--verde);
+        }
+
+        .menu-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+        .food-card {
+
+            background: #111;
+            color: white;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            border: 1px solid #292929;
+
+            transition: .3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--verde);
+        }
+
+        .food-image {
+            height: 220px;
+
+            background: #222;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 70px;
+        }
+
+        .food-info {
+            padding: 20px;
+        }
+
+        .food-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .food-info p {
+            color: #999;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .price {
+
+            margin-top: 20px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            color: var(--verde);
+
+            font-size: 22px;
+
+            font-weight: bold;
+        }
+
+        .cart {
+
+            width: 38px;
+            height: 38px;
+
+            border: 1px solid var(--verde);
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+        }
+
+
+
+        /* =====================================================
+   RECENZII
+===================================================== */
+
+        #recenzii {
+            background: #0b0b0b;
+        }
+
+        .reviews {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .review {
+
+            background: #111;
+
+            border: 1px solid #292929;
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            transition: .3s;
+        }
+
+        .review:hover {
+            border-color: var(--verde);
+        }
+
+        .stars {
+            color: var(--verde);
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .review p {
+
+            color: #aaa;
+
+            line-height: 1.7;
+
+            margin-bottom: 25px;
+        }
+
+        .person {
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
+   COMANDA
+===================================================== */
+
+        .order-section {
+
+            background:
+
+                linear-gradient(rgba(0, 0, 0, .85),
+                    rgba(0, 0, 0, .95)),
+
+                radial-gradient(circle at center,
+                    rgba(168, 230, 0, .18),
+                    transparent 60%);
+
+            text-align: center;
+        }
+
+        .order-section h2 {
+
+            font-size: 60px;
+
+            font-style: italic;
+        }
+
+        .order-section h2 span {
+            color: var(--verde);
+        }
+
+        .order-section p {
+
+            color: #aaa;
+
+            max-width: 600px;
+
+            margin: 20px auto 30px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+   CONTACT
+===================================================== */
+
+        #contact {
+            background: #f5f5f5;
+            color: #111;
+        }
+
+        .contact {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-size: 35px;
+            margin-bottom: 30px;
+        }
+
+        .contact-row {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+
+            width: 50px;
+            height: 50px;
+
+            border-radius: 50%;
+
+            background: var(--verde);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 20px;
+        }
+
+        .contact-row span {
+            color: #555;
+        }
+
+        .contact-box {
+
+            background: #111;
+
+            color: white;
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            border: 1px solid #292929;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 25px;
+        }
+
+        .hours {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 15px 0;
+
+            border-bottom: 1px solid #292929;
+        }
+
+        .hours span:last-child {
+            color: var(--verde);
+        }
+
+
+        /* =====================================================
+   FOOTER
+===================================================== */
+
+        footer {
+
+            background: #050505;
+
+            padding: 60px 7% 25px;
+
+        }
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr 1fr;
+
+            gap: 40px;
+
+            padding-bottom: 40px;
+
+            border-bottom: 1px solid #222;
+        }
+
+        .footer-logo {
+
+            font-size: 35px;
+
+            font-weight: bold;
+
+            font-style: italic;
+        }
+
+        .footer-logo span {
+            color: var(--verde);
+        }
+
+        footer p {
+            color: #777;
+            line-height: 1.7;
+            margin-top: 15px;
+        }
+
+        footer h3 {
+            margin-bottom: 20px;
+        }
+
+        footer a {
+
+            display: block;
+
+            color: #777;
+
+            margin-bottom: 12px;
+
+            transition: .3s;
+        }
+
+        footer a:hover {
+            color: var(--verde);
+        }
+
+        .copyright {
+
+            text-align: center;
+
+            padding-top: 25px;
+
+            color: #555;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+   TELEFON
+===================================================== */
+
+        @media(max-width:768px) {
+
+            header {
+                height: 70px;
+                padding: 0 20px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            nav {
+
+                display: none;
+
+                position: absolute;
+
+                top: 70px;
+                left: 0;
+
+                width: 100%;
+
+                background: #080808;
+
+                flex-direction: column;
+
+                padding: 15px 25px;
+
+                gap: 0;
+
+                border-bottom: 1px solid var(--verde);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+
+                width: 100%;
+
+                text-align: center;
+
+                padding: 16px 0;
+
+                border-bottom: 1px solid #222;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+
+            section {
+                padding: 80px 20px;
+            }
+
+
+            /* HOME */
+
+            #home {
+                min-height: 100vh;
+                padding: 100px 20px 50px;
+            }
+
+            .home-title {
+                font-size: 70px;
+            }
+
+            .home-subtitle {
+                font-size: 14px;
+                letter-spacing: 3px;
+            }
+
+            .home-text {
+                font-size: 14px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+
+            /* TITLURI */
+
+            .section-title h2 {
+                font-size: 42px;
+            }
+
+            .section-title {
+                margin-bottom: 40px;
+            }
+
+
+            /* DESPRE */
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .about-text h3 {
+                font-size: 32px;
+            }
+
+            .about-image {
+                min-height: 280px;
+            }
+
+            .about-image h3 {
+                font-size: 55px;
+            }
+
+
+            /* FEATURES */
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+
+            /* MENIU */
+
+            .menu-tabs {
+                justify-content: flex-start;
+
+                overflow-x: auto;
+
+                flex-wrap: nowrap;
+
+                padding-bottom: 10px;
+            }
+
+            .menu-tab {
+                white-space: nowrap;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .food-image {
+                height: 210px;
+            }
+
+
+
+            /* RECENZII */
+
+            .reviews {
+                grid-template-columns: 1fr;
+            }
+
+
+            /* COMANDA */
+
+            .order-section h2 {
+                font-size: 42px;
+            }
+
+
+            /* CONTACT */
+
+            .contact {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+
+            /* FOOTER */
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+        }
+
+        /* =====================================================
+   MENIU
+===================================================== */
+
+        #meniu {
+            background: #f5f5f5;
+            color: #111;
+        }
+
+
+        /* CATEGORII */
+
+        .menu-tabs {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            margin-bottom: 45px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .menu-tab {
+
+            border: 1px solid #222;
+
+            background: transparent;
+
+            color: #111;
+
+            padding: 12px 25px;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+
+        .menu-tab:hover {
+
+            background: #a8e600;
+
+            border-color: #a8e600;
+        }
+
+
+        .menu-tab.active {
+
+            background: #a8e600;
+
+            border-color: #a8e600;
+        }
+
+
+        /* =====================================================
+   CARUSEL
+===================================================== */
+
+        .menu-carousel {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            width: 100%;
+        }
+
+
+        .carousel-window {
+
+            width: 100%;
+
+            overflow: hidden;
+        }
+
+
+        .carousel-track {
+
+            display: flex;
+
+            gap: 25px;
+
+            transition:
+                transform .5s ease;
+
+            will-change: transform;
+        }
+
+
+        .food-card {
+
+            flex: 0 0 calc(25% - 19px);
+
+            background: #111;
+
+            color: white;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            border: 1px solid #292929;
+
+            transition: .3s;
+
+        }
+
+
+        .food-card:hover {
+
+            transform: translateY(-7px);
+
+            border-color: #a8e600;
+
+        }
+
+
+        /* POZA */
+
+        .food-image {
+
+            height: 220px;
+
+            background: #202020;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 70px;
+        }
+
+
+        /* INFORMAȚII */
+
+        .food-info {
+
+            padding: 22px;
+        }
+
+
+        .food-info h3 {
+
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .food-info p {
+
+            color: #999;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            min-height: 45px;
+        }
+
+
+        .price {
+
+            margin-top: 20px;
+
+            color: #a8e600;
+
+            font-size: 22px;
+
+            font-weight: bold;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        /* =====================================================
+   SĂGEȚI
+===================================================== */
+
+        .carousel-btn {
+
+            flex-shrink: 0;
+
+            width: 50px;
+
+            height: 50px;
+
+            border-radius: 50%;
+
+            border: 2px solid #a8e600;
+
+            background: #111;
+
+            color: #a8e600;
+
+            font-size: 35px;
+
+            line-height: 40px;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition: .3s;
+
+        }
+
+
+        .carousel-btn:hover {
+
+            background: #a8e600;
+
+            color: #111;
+        }
+
+
+        /* =====================================================
+   PUNCTE
+===================================================== */
+
+        .carousel-dots {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin-top: 25px;
+        }
+
+
+        .carousel-dot {
+
+            width: 8px;
+
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #bbb;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+
+        .carousel-dot.active {
+
+            width: 25px;
+
+            border-radius: 10px;
+
+            background: #a8e600;
+        }
+
+
+        /* =====================================================
+   TELEFON
+===================================================== */
+
+        @media (max-width: 768px) {
+
+            .menu-tabs {
+
+                justify-content: flex-start;
+
+                flex-wrap: nowrap;
+
+                overflow-x: auto;
+
+                padding-bottom: 8px;
+
+            }
+
+
+            .menu-tab {
+
+                flex-shrink: 0;
+
+                padding: 11px 20px;
+
+                font-size: 12px;
+
+            }
+
+
+            .menu-carousel {
+
+                gap: 8px;
+
+            }
+
+
+            .carousel-btn {
+
+                width: 40px;
+
+                height: 40px;
+
+                font-size: 28px;
+
+            }
+
+
+            .food-card {
+
+                flex: 0 0 100%;
+
+            }
+
+
+            .food-image {
+
+                height: 250px;
+
+            }
+
+
+            .food-info {
+
+                padding: 22px;
+
+            }
+
+        }
+
+
+        /* TELEFON FOARTE MIC */
+
+        @media (max-width: 450px) {
+
+            .carousel-btn {
+
+                width: 35px;
+
+                height: 35px;
+
+                font-size: 24px;
+
+            }
+
+        }
+
+
+        /* =====================================================
+   TELEFON FOARTE MIC
+===================================================== */
+
+        @media(max-width:400px) {
+
+            .home-title {
+                font-size: 58px;
+            }
+
+            .section-title h2 {
+                font-size: 36px;
+            }
+
+        }
+
+        /* =====================================================
+           ANIMAȚII PREMIUM
+        ===================================================== */
+
+        :root {
+            --ease-premium: cubic-bezier(.16, 1, .3, 1);
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* elemente care intră în pagină la scroll */
+        .reveal,
+        .reveal-left,
+        .reveal-right,
+        .reveal-scale,
+        .reveal-rotate {
+            opacity: 0;
+            will-change: transform, opacity;
+            transition:
+                opacity 1s var(--ease-premium),
+                transform 1s var(--ease-premium),
+                filter 1s var(--ease-premium);
+        }
+
+        .reveal {
+            transform: translateY(80px);
+            filter: blur(8px);
+        }
+
+        .reveal-left {
+            transform: translateX(-100px);
+            filter: blur(8px);
+        }
+
+        .reveal-right {
+            transform: translateX(100px);
+            filter: blur(8px);
+        }
+
+        .reveal-scale {
+            transform: scale(.75);
+            filter: blur(8px);
+        }
+
+        .reveal-rotate {
+            transform: translateY(60px) rotate(8deg) scale(.92);
+            filter: blur(8px);
+        }
+
+        .reveal.show,
+        .reveal-left.show,
+        .reveal-right.show,
+        .reveal-scale.show,
+        .reveal-rotate.show {
+            opacity: 1;
+            transform: none;
+            filter: blur(0);
+        }
+
+        /* titlurile au o mică animație de lumină */
+        .section-title h2 {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -12px;
+            width: 0;
+            height: 2px;
+            background: var(--verde);
+            box-shadow: 0 0 18px rgba(168, 230, 0, .8);
+            transform: translateX(-50%);
+            transition: width 1s .25s var(--ease-premium);
+        }
+
+        .section-title.show-title h2::after {
+            width: 80%;
+        }
+
+        /* Home - apariție cinematică */
+        .home-content>* {
+            opacity: 0;
+            transform: translateY(45px) scale(.96);
+            filter: blur(10px);
+            animation: homeReveal 1.1s var(--ease-premium) forwards;
+        }
+
+        .home-content .home-title {
+            animation-delay: .15s;
+        }
+
+        .home-content .home-subtitle {
+            animation-delay: .35s;
+        }
+
+        .home-content .home-text {
+            animation-delay: .5s;
+        }
+
+        .home-content .buttons {
+            animation-delay: .68s;
+        }
+
+        @keyframes homeReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .home-title span {
+            text-shadow: 0 0 0 rgba(168, 230, 0, 0);
+            animation: greenGlow 2.5s ease-in-out 1.2s infinite alternate;
+        }
+
+        @keyframes greenGlow {
+            from {
+                text-shadow: 0 0 0 rgba(168, 230, 0, 0);
+            }
+
+            to {
+                text-shadow: 0 0 35px rgba(168, 230, 0, .55);
+            }
+        }
+
+        /* fundal cu lumini plutitoare */
+        #home::before,
+        #home::after {
+            content: "";
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(80px);
+            opacity: .16;
+            background: var(--verde);
+            animation: floatGlow 8s ease-in-out infinite alternate;
+        }
+
+        #home::before {
+            top: 5%;
+            left: -180px;
+        }
+
+        #home::after {
+            right: -180px;
+            bottom: 0;
+            animation-delay: -4s;
+        }
+
+        @keyframes floatGlow {
+            from {
+                transform: translate3d(0, 0, 0) scale(.8);
+            }
+
+            to {
+                transform: translate3d(80px, -60px, 0) scale(1.15);
+            }
+        }
+
+        /* cardurile intră pe rând */
+        .feature:nth-child(1),
+        .food-card:nth-child(1),
+        .review:nth-child(1) {
+            transition-delay: .05s;
+        }
+
+        .feature:nth-child(2),
+        .food-card:nth-child(2),
+        .review:nth-child(2) {
+            transition-delay: .15s;
+        }
+
+        .feature:nth-child(3),
+        .food-card:nth-child(3),
+        .review:nth-child(3) {
+            transition-delay: .25s;
+        }
+
+        .food-card:nth-child(4) {
+            transition-delay: .35s;
+        }
+
+        /* hover mai spectaculos */
+        .feature,
+        .food-card,
+        .review,
+        .contact-box,
+        .about-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature::before,
+        .food-card::before,
+        .review::before,
+        .contact-box::before,
+        .about-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(100deg,
+                    transparent,
+                    rgba(255, 255, 255, .09),
+                    transparent);
+            transform: skewX(-18deg);
+            transition: left .8s ease;
+            pointer-events: none;
+        }
+
+        .feature:hover::before,
+        .food-card:hover::before,
+        .review:hover::before,
+        .contact-box:hover::before,
+        .about-image:hover::before {
+            left: 140%;
+        }
+
+        .feature:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, .35);
+        }
+
+        .food-card:hover {
+            transform: translateY(-12px) scale(1.015);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, .25);
+        }
+
+        .review:hover {
+            transform: translateY(-10px) scale(1.015);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, .35);
+        }
+
+        .feature-icon {
+            transition: transform .5s var(--ease-premium), box-shadow .5s ease;
+        }
+
+        .feature:hover .feature-icon {
+            transform: rotate(12deg) scale(1.12);
+            box-shadow: 0 0 25px rgba(168, 230, 0, .35);
+        }
+
+        .btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 70%;
+            height: 100%;
+            background: rgba(255, 255, 255, .22);
+            transform: skewX(-20deg);
+            transition: left .6s ease;
+        }
+
+        .btn:hover::before {
+            left: 130%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.03);
+        }
+
+        .menu-tab {
+            transition:
+                transform .35s var(--ease-premium),
+                background .3s ease,
+                color .3s ease,
+                box-shadow .3s ease;
+        }
+
+        .menu-tab:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(168, 230, 0, .18);
+        }
+
+        .carousel-btn {
+            transition:
+                transform .35s var(--ease-premium),
+                background .3s ease,
+                color .3s ease;
+        }
+
+        .carousel-btn:hover {
+            transform: scale(1.12) rotate(4deg);
+        }
+
+        .contact-icon {
+            transition: transform .5s var(--ease-premium), box-shadow .5s ease;
+        }
+
+        .contact-row:hover .contact-icon {
+            transform: scale(1.15) rotate(-8deg);
+            box-shadow: 0 0 25px rgba(168, 230, 0, .4);
+        }
+
+        .hours {
+            transition: padding-left .35s ease, border-color .35s ease;
+        }
+
+        .hours:hover {
+            padding-left: 10px;
+            border-color: var(--verde);
+        }
+
+        footer .footer-logo {
+            transition: transform .4s var(--ease-premium);
+        }
+
+        footer .footer-logo:hover {
+            transform: translateX(8px) skewX(-5deg);
+        }
+
+        /* reduce motion pentru utilizatorii care au această setare */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .reveal,
+            .reveal-left,
+            .reveal-right,
+            .reveal-scale,
+            .reveal-rotate {
+                opacity: 1;
+                transform: none;
+                filter: none;
+            }
+        }
+        
+
+        
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+     HEADER
+===================================================== -->
+
+    <header>
+
+        <div class="logo">
+
+            Street<span>Box</span>
+
+            <small>
+                FOOD&COFFEE
+            </small>
+
+        </div>
+
+
+        <nav id="menu">
+
+            <a href="#home">ACASĂ</a>
+
+            <a href="#despre">DESPRE NOI</a>
+
+            <a href="#meniu">MENIU</a>
+            <a href="#recenzii">RECENZII</a>
+
+            <a href="#contact">CONTACT</a>
+
+            <a href="#comanda" class="order-btn">
+                COMANDĂ ACUM
+            </a>
+
+        </nav>
+
+
+        <div class="hamburger" onclick="toggleMenu()">
+
+            <span></span>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+     HOME
+===================================================== -->
+
+    <section id="home">
+
+        <div class="home-content">
+
+            <h1 class="home-title">
+
+                Street<br>
+
+                <span>Box</span>
+
+            </h1>
+
+
+            <div class="home-subtitle">
+
+                FOOD & COFFEE
+
+            </div>
+
+
+
+
+
+            <div class="buttons">
+
+                <a href="#meniu" class="btn btn-green">
+                    VEZI MENIUL
+                </a>
+
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     DESPRE NOI
+===================================================== -->
+
+    <section id="despre">
+
+        <div class="section-title reveal">
+
+            <h2>
+                Despre <span>noi</span>
+            </h2>
+
+            <p>
+                Descoperă povestea StreetBox
+            </p>
+
+        </div>
+
+
+        <div class="about reveal">
+
+            <div class="about-text reveal-left">
+
+                <h3>
+                    Gust simplu.
+                    <span>Pasiune mare.</span>
+                </h3>
+
+                <p>
+                    StreetBox Food&Coffee este locul unde
+                    mâncarea bună se întâlnește cu atmosfera
+                    urbană și energia orașului.
+                </p>
+
+                <p>
+                    Punem accent pe ingrediente de calitate,
+                    gust și preparate pregătite cu atenție
+                    pentru fiecare client.
+                </p>
+
+
+
+            </div>
+
+
+
+
+        </div>
+
+
+        <div class="features reveal">
+
+
+            <div class="feature reveal-scale">
+
+                <div class="feature-icon">
+                    🍔
+                </div>
+
+                <h3>
+                    Ingrediente
+                </h3>
+
+                <p>
+                    • Folosim ingrediente atent alese
+                    pentru preparate gustoase. <br> • Vrem să afirmăm cu certitudine că ,,<i>Ingredientele noastre sunt
+                        de o calitate bună prin faptul că sunt proaspete".</i>
+                    <br>• Suntem credincioșii în lucrurile mici precum ,,<i>INGREDIENTELE</i>", ca lucrurile mari
+                    obținute din cele mici cum ar fi ,,<i>PREPARATELE GUSTOARE</i>", să iasă desăvârșite!
+                </p>
+
+            </div>
+
+
+
+
+
+            <div class="feature reveal-scale">
+
+                <div class="feature-icon">
+                    ❤️
+                </div>
+
+                <h3>
+                    Gătit cu pasiune
+                </h3>
+
+                <p>
+                    • Punem pasiune în fiecare preparat
+                    pe care îl pregătim.
+                    <br>• Într-o societate în care ura pare să se răspândeasca tot mai mult, noi alegem să răspândim
+                    iubirea de la om la om, dar și prin fiecare preparat pe care îl gătim.
+                    Pentru că mâncarea făcută cu pasiune nu hrăneste doar trupul, ci poate ajunge si la suflet.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     MENIU
+===================================================== -->
+    <section id="meniu">
+
+        <div class="section-title reveal">
+            <h2>Meniul nostru</h2>
+            <p>Alege categoria preferată</p>
+        </div>
+
+
+        <!-- CATEGORII -->
+
+        <div class="menu-tabs reveal">
+
+            <button class="menu-tab active" data-category="toate">
+                TOATE
+            </button>
+
+            <button class="menu-tab" data-category="burgeri">
+                BURGERI
+            </button>
+
+            <button class="menu-tab" data-category="bowls">
+                BOWLS
+            </button>
+
+            <button class="menu-tab" data-category="bauturi">
+                BĂUTURI
+            </button>
+
+            <button class="menu-tab" data-category="deserturi">
+                DESERTURI
+            </button>
+
+        </div>
+
+
+        <!-- CARUSEL -->
+
+        <div class="menu-carousel reveal-scale">
+
+            <button class="carousel-btn prev">
+                ‹
+            </button>
+
+
+            <div class="carousel-window">
+
+                <div class="carousel-track">
+
+
+                    <!-- BURGER 1 -->
+
+                    <article class="food-card" data-category="burgeri">
+
+                        <div class="food-image">
+                            🍔
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>
+                                StreetBox Burger
+                            </h3>
+
+                            <p>
+                                Carne de vită, cheddar,
+                                salată și sos StreetBox.
+                            </p>
+
+                            <div class="price">
+                                22 LEI
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- BURGER 2 -->
+
+                    <article class="food-card" data-category="burgeri">
+
+                        <div class="food-image">
+                            🍔
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>
+                                Double StreetBox
+                            </h3>
+
+                            <p>
+                                Două bucăți de carne,
+                                cheddar și sos special.
+                            </p>
+
+                            <div class="price">
+                                29 LEI
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- BURGER 3 -->
+
+                    <article class="food-card" data-category="burgeri">
+
+                        <div class="food-image">
+                            🍔
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>
+                                Crispy Burger
+                            </h3>
+
+                            <p>
+                                Pui crispy, cheddar,
+                                salată și sos.
+                            </p>
+
+                            <div class="price">
+                                24 LEI
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- BURGER 4 -->
+
+                    <article class="food-card" data-category="burgeri">
+
+                        <div class="food-image">
+                            🍔
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>
+                                BBQ Burger
+                            </h3>
+
+                            <p>
+                                Carne de vită, cheddar,
+                                ceapă și sos BBQ.
+                            </p>
+
+                            <div class="price">
+                                26 LEI
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- BOWL 1 -->
+
+                    <article class="food-card" data-category="bowls">
+
+                        <div class="food-image">
+                            🍗
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>
+                                Bowl Crispy
+                            </h3>
+
+                            <p>
+                                Pui crispy, cartofi,
+                                porumb și sos.
+                            </p>
+
+                            <div class="price">
+                                25 LEI
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- BOWL 2 -->
+
+                    <article class="food-card" data-category="bowls">
+
+                        <div class="food-image">
+                            🍟
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>
+                                Bowl StreetBox
+                            </h3>
+
+                            <p>
+                                Cartofi, pui crispy,
+                                porumb și sos.
+                            </p>
+
+                            <div class="price">
+                                27 LEI
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- BOWL 3 -->
+
+                    <article class="food-card" data-category="bowls">
+
+                        <div class="food-image">
+                            🌽
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>
+                                Bowl Crispy XXL
+                            </h3>
+
+                            <p>
+                                Porție mare de crispy,
+                                cartofi și porumb.
+                            </p>
+
+                            <div class="price">
+                                32 LEI
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- BOWL 4 -->
+
+                    <article class="food-card" data-category="bowls">
+
+                        <div class="food-image">
+                            🥗
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>
+                                Fresh Bowl
+                            </h3>
+
+                            <p>
+                                Salată fresh, pui,
+                                legume și dressing.
+                            </p>
+
+                            <div class="price">
+                                23 LEI
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- BAUTURA 1 -->
+
+                    <article class="food-card" data-category="bauturi">
+
+                        <div class="food-image">
+                            🍋
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>
+                                Lemonade Fresh
+                            </h3>
+
+                            <p>
+                                Limonadă cu lămâie
+                                și mentă.
+                            </p>
+
+                            <div class="price">
+                                12 LEI
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- BAUTURA 2 -->
+
+                    <article class="food-card" data-category="bauturi">
+
+                        <div class="food-image">
+                            ☕
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>
+                                Cappuccino
+                            </h3>
+
+                            <p>
+                                Cafea cremoasă
+                                preparată proaspăt.
+                            </p>
+
+                            <div class="price">
+                                10 LEI
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- BAUTURA 3 -->
+
+                    <article class="food-card" data-category="bauturi">
+
+                        <div class="food-image">
+                            🥤
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>
+                                Frappe Ciocolată
+                            </h3>
+
+                            <p>
+                                Frappe cu ciocolată
+                                și frișcă.
+                            </p>
+
+                            <div class="price">
+                                15 LEI
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- BAUTURA 4 -->
+
+                    <article class="food-card" data-category="bauturi">
+
+                        <div class="food-image">
+                            🧋
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>
+                                Ice Coffee
+                            </h3>
+
+                            <p>
+                                Cafea rece,
+                                lapte și gheață.
+                            </p>
+
+                            <div class="price">
+                                14 LEI
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- DESERT 1 -->
+
+                    <article class="food-card" data-category="deserturi">
+
+                        <div class="food-image">
+                            🍰
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>
+                                Cheesecake
+                            </h3>
+
+                            <p>
+                                Cheesecake cremos
+                                cu topping.
+                            </p>
+
+                            <div class="price">
+                                16 LEI
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- DESERT 2 -->
+
+                    <article class="food-card" data-category="deserturi">
+
+                        <div class="food-image">
+                            🍫
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>
+                                Brownie
+                            </h3>
+
+                            <p>
+                                Brownie cu ciocolată.
+                            </p>
+
+                            <div class="price">
+                                14 LEI
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- DESERT 3 -->
+
+                    <article class="food-card" data-category="deserturi">
+
+                        <div class="food-image">
+                            🍨
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>
+                                StreetBox Ice Cream
+                            </h3>
+
+                            <p>
+                                Înghețată cu topping
+                                și sos de ciocolată.
+                            </p>
+
+                            <div class="price">
+                                13 LEI
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- DESERT 4 -->
+
+                    <article class="food-card" data-category="deserturi">
+
+                        <div class="food-image">
+                            🥞
+                        </div>
+
+                        <div class="food-info">
+
+                            <h3>
+                                Pancakes
+                            </h3>
+
+                            <p>
+                                Clătite pufoase cu
+                                ciocolată și fructe.
+                            </p>
+
+                            <div class="price">
+                                18 LEI
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+
+            <button class="carousel-btn next">
+                ›
+            </button>
+
+        </div>
+
+
+        <!-- INDICATORI -->
+
+        <div class="carousel-dots"></div>
+
+    </section>
+
+
+
+
+    <!-- =====================================================
+     RECENZII
+===================================================== -->
+
+    <section id="recenzii">
+
+        <div class="section-title reveal">
+
+            <h2>
+                Ce spun <span>clienții</span>
+            </h2>
+
+            <p>
+                Părerea celor care ne-au trecut pragul
+            </p>
+
+        </div>
+
+
+        <div class="reviews reveal">
+
+
+            <div class="review reveal-scale">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+
+                    „Mâncare foarte gustoasă,
+                    porții generoase și personal
+                    foarte amabil. Recomand!”
+
+                </p>
+
+                <div class="person">
+                    Andrei M.
+                </div>
+
+            </div>
+
+
+
+            <div class="review reveal-scale">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+
+                    „Un loc foarte fain.
+                    Burgerul a fost excelent,
+                    iar cafeaua chiar bună.”
+
+                </p>
+
+                <div class="person">
+                    Maria C.
+                </div>
+
+            </div>
+
+
+
+            <div class="review reveal-scale">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+
+                    „Servire rapidă și mâncare
+                    foarte bună. Cu siguranță
+                    mai revenim!”
+
+                </p>
+
+                <div class="person">
+                    David R.
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     COMANDA
+===================================================== -->
+
+    <section id="comanda" class="order-section reveal">
+
+        <h2>
+
+           
+
+            <span>
+                Comandă acum!
+            </span>
+
+        </h2>
+
+        <p>
+
+            Alege preparatele preferate și
+            bucură-te de gustul StreetBox.
+
+        </p>
+
+        <a href="tel:+40779338390" class="btn btn-green">
+
+            📞 SUNĂ ȘI COMANDĂ
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     CONTACT
+===================================================== -->
+
+    <section id="contact">
+
+        <div class="section-title reveal">
+
+            <h2>
+                Contact <span>StreetBox</span>
+            </h2>
+
+            <p>
+                Suntem aici pentru tine
+            </p>
+
+        </div>
+
+
+        <div class="contact reveal">
+
+
+            <div class="contact-info reveal-left">
+
+                <h3>
+                    Hai să vorbim!
+                </h3>
+
+
+                <div class="contact-row">
+
+                    <div class="contact-icon">
+                        📞
+                    </div>
+
+                    <div>
+
+                        <strong>Telefon</strong>
+
+                        <br>
+
+                        <span>
+                            +40 779 338 390
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="contact-row">
+
+                    <div class="contact-icon">
+                        ✉️
+                    </div>
+
+                    <div>
+
+                        <strong>Email</strong>
+
+                        <br>
+
+                        <span>
+                            streetbox@gmail.com
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="contact-row">
+
+                    <div class="contact-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <strong>Locație</strong>
+
+                        <br>
+
+                        <span>
+                            Mediaș, România
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="contact-box reveal-right">
+
+                <h3>
+                    Program
+                </h3>
+
+
+                <div class="hours">
+
+                    <span>
+                        Luni - Vineri
+                    </span>
+
+                    <span>
+                        07:00 - 15:30
+                    </span>
+
+                </div>
+
+
+                <div class="hours">
+
+                    <span>
+                        Sâmbătă
+                    </span>
+
+                    <span>
+                        Închis
+                    </span>
+
+                </div>
+
+
+                <div class="hours">
+
+                    <span>
+                        Duminică
+                    </span>
+
+                    <span>
+                        Închis
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     FOOTER
+===================================================== -->
+
+    <footer>
+
+
+        <div class="footer-grid reveal">
+
+
+            <div>
+
+                <div class="footer-logo">
+
+                    Street<span>Box</span>
+
+                </div>
+
+                <p>
+
+                    Food & Coffee pentru
+                    momentele în care vrei
+                    ceva bun.
+
+                </p>
+
+            </div>
+
+
+
+            <div>
+
+                <h3>
+                    Navigare
+                </h3>
+
+                <a href="#home">
+                    Acasă
+                </a>
+
+                <a href="#despre">
+                    Despre noi
+                </a>
+
+                <a href="#meniu">
+                    Meniu
+                </a>
+            </div>
+
+
+
+            <div>
+
+                <h3>
+                    Informații
+                </h3>
+
+                <a href="#recenzii">
+                    Recenzii
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+                <a href="#comanda">
+                    Comandă
+                </a>
+
+            </div>
+
+
+
+            <div>
+
+                <h3>
+                    Social
+                </h3>
+
+                <a href="#">
+                    Instagram
+                </a>
+
+                <a href="#">
+                    Facebook
+                </a>
+
+                <a href="#">
+                    TikTok
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 StreetBox Food&Coffee.
+            Toate drepturile rezervate.
+
+        </div>
+
+
+    </footer>
+
+
+
+    <script>
+
+        /* =====================================================
+           MENIU TELEFON
+        ===================================================== */
+
+        function toggleMenu() {
+
+            const menu =
+                document.getElementById("menu");
+
+            menu.classList.toggle("active");
+
+        }
+
+
+        /* =====================================================
+           ÎNCHIDE MENIUL DUPĂ CLICK
+        ===================================================== */
+
+        document.querySelectorAll("nav a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    document
+                        .getElementById("menu")
+                        .classList.remove("active");
+
+                });
+
+            });
+
+
+        /* =====================================================
+           CATEGORII MENIU
+        ===================================================== */
+
+        const tabs =
+            document.querySelectorAll(".menu-tab");
+
+        tabs.forEach(tab => {
+
+            tab.addEventListener("click", () => {
+
+                tabs.forEach(t =>
+                    t.classList.remove("active")
+                );
+
+                tab.classList.add("active");
+
+            });
+
+        });
+
+    </script>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+            const tabs =
+                document.querySelectorAll(".menu-tab");
+
+            const allProducts =
+                Array.from(
+                    document.querySelectorAll(".food-card")
+                );
+
+
+            const track =
+                document.querySelector(".carousel-track");
+
+
+            const prev =
+                document.querySelector(".prev");
+
+
+            const next =
+                document.querySelector(".next");
+
+
+            const dotsContainer =
+                document.querySelector(".carousel-dots");
+
+
+            let currentIndex = 0;
+
+            let visibleProducts = [...allProducts];
+
+
+            /* =================================================
+               CREEAZĂ CARUSELUL
+            ================================================= */
+
+            function createCarousel() {
+
+                track.innerHTML = "";
+
+                visibleProducts.forEach(product => {
+
+                    track.appendChild(product);
+
+                });
+
+
+                currentIndex = 0;
+
+                createDots();
+
+                updateCarousel();
+
+            }
+
+
+            /* =================================================
+               CÂTE PRODUSE SUNT VIZIBILE
+            ================================================= */
+
+            function getVisibleCount() {
+
+                if (window.innerWidth <= 768) {
+
+                    return 1;
+
+                }
+
+                return 4;
+
+            }
+
+
+            /* =================================================
+               DISTANȚA UNUI CARD
+            ================================================= */
+
+            function getCardWidth() {
+
+                if (!visibleProducts.length) {
+
+                    return 0;
+
+                }
+
+
+                const card =
+                    visibleProducts[0];
+
+
+                return card.offsetWidth + 25;
+
+            }
+
+
+            /* =================================================
+               MAX INDEX
+            ================================================= */
+
+            function getMaxIndex() {
+
+                const visible =
+                    getVisibleCount();
+
+
+                return Math.max(
+                    0,
+                    visibleProducts.length - visible
+                );
+
+            }
+
+
+            /* =================================================
+               ACTUALIZEAZĂ CARUSELUL
+            ================================================= */
+
+            function updateCarousel() {
+
+                const width =
+                    getCardWidth();
+
+
+                track.style.transform =
+                    `translateX(-${currentIndex * width}px)`;
+
+
+                updateDots();
+
+
+                prev.style.visibility =
+                    currentIndex > 0
+                        ? "visible"
+                        : "hidden";
+
+
+                next.style.visibility =
+                    currentIndex < getMaxIndex()
+                        ? "visible"
+                        : "hidden";
+
+            }
+
+
+            /* =================================================
+               BUTON NEXT
+            ================================================= */
+
+            next.addEventListener("click", function () {
+
+                if (
+                    currentIndex <
+                    getMaxIndex()
+                ) {
+
+                    currentIndex++;
+
+                    updateCarousel();
+
+                }
+
+            });
+
+
+            /* =================================================
+               BUTON PREV
+            ================================================= */
+
+            prev.addEventListener("click", function () {
+
+                if (currentIndex > 0) {
+
+                    currentIndex--;
+
+                    updateCarousel();
+
+                }
+
+            });
+
+
+            /* =================================================
+               CATEGORII
+            ================================================= */
+
+            tabs.forEach(tab => {
+
+                tab.addEventListener("click", function () {
+
+                    const category =
+                        tab.dataset.category;
+
+
+                    tabs.forEach(t => {
+
+                        t.classList.remove("active");
+
+                    });
+
+
+                    tab.classList.add("active");
+
+
+                    if (category === "toate") {
+
+                        visibleProducts =
+                            [...allProducts];
+
+                    }
+
+                    else {
+
+                        visibleProducts =
+                            allProducts.filter(product => {
+
+                                return product.dataset.category
+                                    === category;
+
+                            });
+
+                    }
+
+
+                    createCarousel();
+
+                });
+
+            });
+
+
+            /* =================================================
+               DOTS
+            ================================================= */
+
+            function createDots() {
+
+                dotsContainer.innerHTML = "";
+
+
+                const max =
+                    getMaxIndex();
+
+
+                for (
+                    let i = 0;
+                    i <= max;
+                    i++
+                ) {
+
+                    const dot =
+                        document.createElement("div");
+
+
+                    dot.className =
+                        "carousel-dot";
+
+
+                    dot.addEventListener(
+                        "click",
+                        function () {
+
+                            currentIndex = i;
+
+                            updateCarousel();
+
+                        }
+                    );
+
+
+                    dotsContainer.appendChild(dot);
+
+                }
+
+
+                updateDots();
+
+            }
+
+
+            function updateDots() {
+
+                const dots =
+                    document.querySelectorAll(
+                        ".carousel-dot"
+                    );
+
+
+                dots.forEach((dot, index) => {
+
+                    dot.classList.toggle(
+                        "active",
+                        index === currentIndex
+                    );
+
+                });
+
+            }
+
+
+            /* =================================================
+               SWIPE PE TELEFON
+            ================================================= */
+
+            let startX = 0;
+
+            let endX = 0;
+
+
+            track.addEventListener(
+                "touchstart",
+                function (e) {
+
+                    startX =
+                        e.touches[0].clientX;
+
+                },
+                { passive: true }
+            );
+
+
+            track.addEventListener(
+                "touchend",
+                function (e) {
+
+                    endX =
+                        e.changedTouches[0].clientX;
+
+
+                    const difference =
+                        startX - endX;
+
+
+                    if (Math.abs(difference) < 50) {
+
+                        return;
+
+                    }
+
+
+                    if (difference > 0) {
+
+                        if (
+                            currentIndex <
+                            getMaxIndex()
+                        ) {
+
+                            currentIndex++;
+
+                        }
+
+                    }
+
+                    else {
+
+                        if (currentIndex > 0) {
+
+                            currentIndex--;
+
+                        }
+
+                    }
+
+
+                    updateCarousel();
+
+                },
+                { passive: true }
+            );
+
+
+            /* =================================================
+               REDIMENSIONARE
+            ================================================= */
+
+            window.addEventListener(
+                "resize",
+                function () {
+
+                    if (
+                        currentIndex >
+                        getMaxIndex()
+                    ) {
+
+                        currentIndex =
+                            getMaxIndex();
+
+                    }
+
+                    updateCarousel();
+
+                }
+            );
+
+
+            /* PORNEȘTE CARUSELUL */
+
+            createCarousel();
+
+        });
+
+    </script>
+
+
+
+    <script>
+        /* =====================================================
+           SISTEM GLOBAL DE ANIMAȚII LA SCROLL
+        ===================================================== */
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const animatedElements = document.querySelectorAll(
+                ".reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-rotate"
+            );
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+
+                        const title = entry.target.closest("section")?.querySelector(".section-title");
+                        if (title) {
+                            title.classList.add("show-title");
+                        }
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: "0px 0px -70px 0px"
+            });
+
+            animatedElements.forEach((element, index) => {
+                /* mică întârziere pentru elementele consecutive */
+                if (element.classList.contains("feature") ||
+                    element.classList.contains("food-card") ||
+                    element.classList.contains("review")) {
+                    element.style.transitionDelay = `${(index % 4) * 0.09}s`;
+                }
+
+                observer.observe(element);
+            });
+
+            /* animație suplimentară pentru fiecare secțiune */
+            document.querySelectorAll("section").forEach(section => {
+                const title = section.querySelector(".section-title");
+                if (!title) return;
+
+                const titleObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            title.classList.add("show-title");
+                            titleObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.35 });
+
+                titleObserver.observe(title);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
