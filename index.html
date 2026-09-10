@@ -762,6 +762,8 @@
             align-items: center;
             justify-content: center;
             font-size: 70px;
+            width: 90%;
+            margin: 13px;
         }
 
         .food-info {
@@ -1446,6 +1448,14 @@
             overflow-x: clip;
             overflow-y: visible;
         }
+        .logo{
+            cursor: pointer;
+        }
+        .ghid{
+            margin-top: 30px;
+            font-size: 20px;
+            font-family: sans-serif;
+        }
     </style>
 </head>
 
@@ -1454,9 +1464,9 @@
     <!-- HEADER -->
 
     <header>
-        <div class="logo">
-            Street<span>Box</span>
-            <small>FOOD&COFFEE</small>
+        <div class="logo" ><a href="#home">
+            StreetBox
+            <small>FOOD&COFFEE</small></a>
         </div>
 
         <nav id="menu">
@@ -1503,7 +1513,7 @@
 
         <section id="despre">
             <div class="section-title reveal">
-                <h2>Despre <span>noi</span></h2>
+                <h2>Despre noi</h2>
                 <p>Descoperă povestea StreetBox</p>
             </div>
 
@@ -1584,21 +1594,40 @@
                     TOATE
                 </button>
 
-                <button class="menu-tab" data-category="burgeri">
-                    BURGERI
+                <button class="menu-tab" data-category="hot-dog">
+                    HOT-DOG
                 </button>
 
-                <button class="menu-tab" data-category="bowls">
-                    BOWLS
+                <button class="menu-tab" data-category="sandwich">
+                    SANDWICHURI CALDE
                 </button>
 
-                <button class="menu-tab" data-category="bauturi">
-                    BĂUTURI
+                <button class="menu-tab" data-category="specialitate">
+                    SPECIALITATI
                 </button>
 
-                <button class="menu-tab" data-category="deserturi">
-                    DESERTURI
+                <button class="menu-tab" data-category="box">
+                    BOX-URI
                 </button>
+                <button class="menu-tab" data-category="minut">
+                    MINUTURI
+                </button>
+                <button class="menu-tab" data-category="salata">
+                    SALATE
+                </button>
+                <button class="menu-tab" data-category="sos">
+                    SOSURI
+                </button>
+                <button class="menu-tab" data-category="băuturi-calde">
+                    BĂUTURI CALDE
+                </button>
+                <button class="menu-tab" data-category="desert">
+                    DESERT
+                </button>
+                <button class="menu-tab" data-category="racoritoare">
+                    BĂUTURI RĂCORITOARE
+                </button>
+                
             </div>
 
             <div class="menu-carousel reveal-scale">
@@ -1607,194 +1636,216 @@
                 <div class="carousel-window">
                     <div class="carousel-track">
 
-                        <article class="food-card" data-category="burgeri">
-                            <div class="food-image">🍔</div>
+                        <article class="food-card" data-category="hot-dog">
+                            <div class="food-image"> <img src="hotdog.png" alt="hot-dog"> </div>
                             <div class="food-info">
-                                <h3>StreetBox Burger</h3>
+                                <h3>Hot-dog simplu (250g)</h3>
                                 <p>
-                                    Carne de vită, cheddar,
-                                    salată și sos StreetBox.
-                                </p>
-                                <div class="price">22 LEI</div>
-                            </div>
-                        </article>
-
-                        <article class="food-card" data-category="burgeri">
-                            <div class="food-image">🍔</div>
-                            <div class="food-info">
-                                <h3>Double StreetBox</h3>
-                                <p>
-                                    Două bucăți de carne,
-                                    cheddar și sos special.
-                                </p>
-                                <div class="price">29 LEI</div>
-                            </div>
-                        </article>
-
-                        <article class="food-card" data-category="burgeri">
-                            <div class="food-image">🍔</div>
-                            <div class="food-info">
-                                <h3>Crispy Burger</h3>
-                                <p>
-                                    Pui crispy, cheddar,
-                                    salată și sos.
-                                </p>
-                                <div class="price">24 LEI</div>
-                            </div>
-                        </article>
-
-                        <article class="food-card" data-category="burgeri">
-                            <div class="food-image">🍔</div>
-                            <div class="food-info">
-                                <h3>BBQ Burger</h3>
-                                <p>
-                                    Carne de vită, cheddar,
-                                    ceapă și sos BBQ.
-                                </p>
-                                <div class="price">26 LEI</div>
-                            </div>
-                        </article>
-
-                        <article class="food-card" data-category="bowls">
-                            <div class="food-image">🍗</div>
-                            <div class="food-info">
-                                <h3>Bowl Crispy</h3>
-                                <p>
-                                    Pui crispy, cartofi,
-                                    porumb și sos.
-                                </p>
-                                <div class="price">25 LEI</div>
-                            </div>
-                        </article>
-
-                        <article class="food-card" data-category="bowls">
-                            <div class="food-image">🍟</div>
-                            <div class="food-info">
-                                <h3>Bowl StreetBox</h3>
-                                <p>
-                                    Cartofi, pui crispy,
-                                    porumb și sos.
-                                </p>
-                                <div class="price">27 LEI</div>
-                            </div>
-                        </article>
-
-                        <article class="food-card" data-category="bowls">
-                            <div class="food-image">🌽</div>
-                            <div class="food-info">
-                                <h3>Bowl Crispy XXL</h3>
-                                <p>
-                                    Porție mare de crispy,
-                                    cartofi și porumb.
-                                </p>
-                                <div class="price">32 LEI</div>
-                            </div>
-                        </article>
-
-                        <article class="food-card" data-category="bowls">
-                            <div class="food-image">🥗</div>
-                            <div class="food-info">
-                                <h3>Fresh Bowl</h3>
-                                <p>
-                                    Salată fresh, pui,
-                                    legume și dressing.
-                                </p>
-                                <div class="price">23 LEI</div>
-                            </div>
-                        </article>
-
-                        <article class="food-card" data-category="bauturi">
-                            <div class="food-image">🍋</div>
-                            <div class="food-info">
-                                <h3>Lemonade Fresh</h3>
-                                <p>
-                                    Limonadă cu lămâie
-                                    și mentă.
-                                </p>
-                                <div class="price">12 LEI</div>
-                            </div>
-                        </article>
-
-                        <article class="food-card" data-category="bauturi">
-                            <div class="food-image">☕</div>
-                            <div class="food-info">
-                                <h3>Cappuccino</h3>
-                                <p>
-                                    Cafea cremoasă
-                                    preparată proaspăt.
-                                </p>
-                                <div class="price">10 LEI</div>
-                            </div>
-                        </article>
-
-                        <article class="food-card" data-category="bauturi">
-                            <div class="food-image">🥤</div>
-                            <div class="food-info">
-                                <h3>Frappe Ciocolată</h3>
-                                <p>
-                                    Frappe cu ciocolată
-                                    și frișcă.
-                                </p>
-                                <div class="price">15 LEI</div>
-                            </div>
-                        </article>
-
-                        <article class="food-card" data-category="bauturi">
-                            <div class="food-image">🧋</div>
-                            <div class="food-info">
-                                <h3>Ice Coffee</h3>
-                                <p>
-                                    Cafea rece,
-                                    lapte și gheață.
-                                </p>
-                                <div class="price">14 LEI</div>
-                            </div>
-                        </article>
-
-                        <article class="food-card" data-category="deserturi">
-                            <div class="food-image">🍰</div>
-                            <div class="food-info">
-                                <h3>Cheesecake</h3>
-                                <p>
-                                    Cheesecake cremos
-                                    cu topping.
-                                </p>
-                                <div class="price">16 LEI</div>
-                            </div>
-                        </article>
-
-                        <article class="food-card" data-category="deserturi">
-                            <div class="food-image">🍫</div>
-                            <div class="food-info">
-                                <h3>Brownie</h3>
-                                <p>Brownie cu ciocolată.</p>
-                                <div class="price">14 LEI</div>
-                            </div>
-                        </article>
-
-                        <article class="food-card" data-category="deserturi">
-                            <div class="food-image">🍨</div>
-                            <div class="food-info">
-                                <h3>StreetBox Ice Cream</h3>
-                                <p>
-                                    Înghețată cu topping
-                                    și sos de ciocolată.
+                                    (baghetă, crenvuști pui, muștar/ketchup)
                                 </p>
                                 <div class="price">13 LEI</div>
                             </div>
                         </article>
 
-                        <article class="food-card" data-category="deserturi">
-                            <div class="food-image">🥞</div>
+                        <article class="food-card" data-category="hot-dog">
+                            <div class="food-image"><img src="hotdogdublu.png" alt="hot-dogdublu"></div>
                             <div class="food-info">
-                                <h3>Pancakes</h3>
+                                <h3>Hot-dog dublu (350g)</h3>
                                 <p>
-                                    Clătite pufoase cu
-                                    ciocolată și fructe.
+                                    (baghetă, 2 buc crenvuști pui, muștar/ketchup)
                                 </p>
-                                <div class="price">18 LEI</div>
+                                <div class="price">15 LEI</div>
                             </div>
                         </article>
+
+                        
+
+                        <article class="food-card" data-category="sandwich">
+                            <div class="food-image"><img src="sandwichsunca.png" alt="sandwichsunca"></div>
+                            <div class="food-info">
+                                <h3>Sandwich cu șuncă</h3>
+                                <p>
+                                    (chiflă,șuncă,cașcaval,cartofi prajiți,salată + 2 sosuri la alegere)
+                                </p>
+                                <div class="price">20 LEI</div>
+                            </div>
+                        </article>
+
+                        <article class="food-card" data-category="sandwich">
+                            <div class="food-image"><img src="sandwichpieptpui.png" alt="sandwichpieptpui"></div>
+                            <div class="food-info">
+                                <h3>Sandwich cu piept de pui (460g)</h3>
+                                <p>
+                                    (chiflă,piept de pui,cașcaval,cartofi prajiți,salată + 2 sosuri la alegere)
+                                </p>
+                                <div class="price">22 LEI</div>
+                            </div>
+                        </article>
+
+                        
+
+                        <article class="food-card" data-category="specialitate">
+                            <div class="food-image"><img src="shaorma.png" alt="shaorma"></div>
+                            <div class="food-info">
+                                <h3>Shaorma pui (460g)</h3>
+                                <p>
+                                    (lipie,carne de pui,cartofi prăjiți,salată + 3 sosuri la alegere)
+                                </p>
+                                <div class="price">25 LEI</div>
+                            </div>
+                        </article>
+
+                        <article class="food-card" data-category="specialitate">
+                            <div class="food-image"><img src="kebabpui.png" alt="Kebab"></div>
+                            <div class="food-info">
+                                <h3>Kebab pui (500g)</h3>
+                                <p>
+                                    (chiflă, carne de pui,cartofi prajiti,salată la alegere + 3 sosuri la alegere)
+                                </p>
+                                <div class="price">25 LEI</div>
+                            </div>
+                        </article>
+
+                        
+
+                        <article class="food-card" data-category="box">
+                            <div class="food-image"><img src="crispicartofi.png" alt="crispicartofi"></div>
+                            <div class="food-info">
+                                <h3>Crispy + cartofi (400g)</h3>
+                                <p>
+                                    (crispy pui,cartofi prajiti,sos la alegere)
+                                </p>
+                                <div class="price">28 LEI</div>
+                            </div>
+                        </article>
+
+                        <article class="food-card" data-category="box">
+                            <div class="food-image"><img src="cascavalpane.png" alt="cascavalpane"></div>
+                            <div class="food-info">
+                                <h3>Cașcaval pane + cartofi (400g)</h3>
+                                <p>(cașcaval pane,cartofi prajiti,sos la alegere)</p>
+                                <div class="price">28 LEI</div>
+                            </div>
+                        </article>
+
+                        <article class="food-card" data-category="box">
+                            <div class="food-image"><img src="aripioaresicartofi.png" alt="aripioaresicartofi"></div>
+                            <div class="food-info">
+                                <h3>Aripioare + cartofi (450g)</h3>
+                                <p>
+                                    (aripioare picante de pui,cartofi prajiti,sos la alegere)
+                                </p>
+                                <div class="price">27 LEI</div>
+                            </div>
+                        </article>
+                        <article class="food-card" data-category="minut">
+                            <div class="food-image"><img src="cartofiprajiti.png" alt="cartofiprajiti"></div>
+                            <div class="food-info" >
+                                <h3>Cartofi prăjiți cu sare (150g)</h3>
+                                <p>
+                                    (cartofi prăjiti)
+                                </p>
+                                <div class="price">8 LEI</div>
+                            </div>
+                        </article>
+                        <article class="food-card" data-category="minut">
+                            <div class="food-image"><img src="cartofiprajiticascaval.png" alt="cartofiprajiticascaval"></div>
+                            <div class="food-info">
+                                <h3>Cartofi prăjiți cu cașcaval (200g)</h3>
+                                <p>
+                                    (cartofi prăjiți,cașcaval)
+                                </p>
+                                <div class="price">10 LEI</div>
+                            </div>
+                        </article>
+                        <article class="food-card" data-category="salata">
+                            <div class="food-image"><img src="salatacrispy.png" alt="salatacrispy"></div>
+                            <div class="food-info" >
+                                <h3>Salată crispy (600g)</h3>
+                                <p>
+                                    (crispy de pui,salată eisberg,roșii,castravete,porumb,ceapă,sos la alegere)
+                                </p>
+                                <div class="price">35 LEI</div>
+                            </div>
+                        </article>
+                        <article class="food-card" data-category="salata">
+                            <div class="food-image"><img src="salatakebab.png" alt="salatakebab"></div>
+                            <div class="food-info">
+                                <h3>Salată Kebab (600g)</h3>
+                                <p>
+                                    (carne de pui,salată eisberg,roșii,castravete,porumb,ceapă,sos la alegere)
+                                </p>
+                                <div class="price">35 LEI</div>
+                            </div>
+                        </article>
+                        <article class="food-card" data-category="sos">
+                            <div class="food-image"><img src="ketchup.png" alt="ketchup"></div>
+                            <div class="food-info">
+                                <h3>ketchup dulce/picant (80g)</h3>
+                                
+                                <div class="price">3 LEI</div>
+                            </div>
+                        </article>
+                        <article class="food-card" data-category="sos">
+                            <div class="food-image"><img src="maioneza.png" alt="maioneza"></div>
+                            <div class="food-info">
+                                <h3>Maioneză (80g)</h3>
+                                
+                                <div class="price">3 LEI</div>
+                            </div>
+                        </article>
+                        <article class="food-card" data-category="sos">
+                            <div class="food-image"><img src="sosusturoi.png" alt="sosusturoi"></div>
+                            <div class="food-info">
+                                <h3>Sos usturoi (80g)</h3>
+                                
+                                <div class="price">3 LEI</div>
+                            </div>
+                        </article>
+                        <article class="food-card" data-category="sos">
+                            <div class="food-image"><img src="mustar.png" alt="mustar"></div>
+                            <div class="food-info">
+                                <h3>Muștar (80g)</h3>
+                                
+                                <div class="price">3 LEI</div>
+                            </div>
+                        </article>
+                        <article class="food-card" data-category="sos">
+                            <div class="food-image"><img src="sosstreetbox.png" alt="sosstreetbox"></div>
+                            <div class="food-info">
+                                <h3>Sosul StreetBox(ușor picant) (80g)</h3>
+                               
+                                <div class="price">3 LEI</div>
+                            </div>
+                        </article>
+                        <article class="food-card" data-category="băuturi-calde">
+                            <div class="food-image"><img src="espreso.png" alt="espreso"></div>
+                            <div class="food-info">
+                                <h3>Cafea Espresso (150ml)</h3>
+                               
+                                <div class="price">6 LEI</div>
+                            </div>
+                        </article>
+                        <article class="food-card" data-category="băuturi-calde">
+                            <div class="food-image"><img src="capucino.png" alt="capucino"></div>
+                            <div class="food-info">
+                                <h3>Cafea Cappucino (200ml)</h3>
+                               
+                                <div class="price">8 LEI</div>
+                            </div>
+                        </article>
+                        <article class="food-card" data-category="băuturi-calde">
+                            <div class="food-image"><img src="latte.png" alt="latte"></div>
+                            <div class="food-info">
+                                <h3>Cafea Latte (300ml)</h3>
+                               
+                                <div class="price">10 LEI</div>
+                            </div>
+                        </article>
+                        
+
+
+                        
 
                     </div>
                 </div>
@@ -1809,8 +1860,8 @@
 
         <section id="recenzii">
             <div class="section-title reveal">
-                <h2>Ce spun <span>clienții</span></h2>
-                <p>Părerea celor care ne-au trecut pragul</p>
+                <h2>Ce spun clienții?</h2>
+                <p>Părerea celor care ne-au trecut pragul...</p>
             </div>
 
             <div class="reviews reveal">
@@ -1859,6 +1910,8 @@
             <a href="tel:+40779338390" class="btn btn-green">
                 📞 SUNĂ ȘI COMANDĂ
             </a>
+            <div class="ghid">Apasă pe SUNĂ ȘI COMANDĂ !</div>
+           
         </section>
 
         <!-- CONTACT -->
@@ -1896,7 +1949,7 @@
                         <div>
                             <strong>Locație</strong>
                             <br>
-                            <span>Mediaș, România</span>
+                            <span>Srada Unirii nr.8(Autogara), Mediaș, România</span>
                         </div>
                     </div>
                 </div>
