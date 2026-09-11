@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>StreetBox Food&Coffee</title>
+    <!-- Pornește cât mai devreme încărcarea imaginii principale -->
+    <link rel="preload" as="image" href="imgs.png" fetchpriority="high">
+
+
+    <!-- Conectează-te în avans la serverul de fonturi sau resurse externe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Încarcă CSS-ul principal cu prioritate maximă -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="stylesheet" href="style.css">
+
 
     <style>
         /* RESET ȘI CULORI */
@@ -848,7 +860,7 @@
                 padding-bottom: 8px;
             }
 
-            
+
 
             .menu-tab {
                 flex-shrink: 0;
@@ -1448,10 +1460,12 @@
             overflow-x: clip;
             overflow-y: visible;
         }
-        .logo{
+
+        .logo {
             cursor: pointer;
         }
-        .ghid{
+
+        .ghid {
             margin-top: 30px;
             font-size: 20px;
             font-family: sans-serif;
@@ -1464,9 +1478,9 @@
     <!-- HEADER -->
 
     <header>
-        <div class="logo" ><a href="#home">
-            StreetBox
-            <small>FOOD&COFFEE</small></a>
+        <div class="logo"><a href="#home">
+                StreetBox
+                <small>FOOD&COFFEE</small></a>
         </div>
 
         <nav id="menu">
@@ -1627,7 +1641,7 @@
                 <button class="menu-tab" data-category="racoritoare">
                     BĂUTURI RĂCORITOARE
                 </button>
-                
+
             </div>
 
             <div class="menu-carousel reveal-scale">
@@ -1637,7 +1651,7 @@
                     <div class="carousel-track">
 
                         <article class="food-card" data-category="hot-dog">
-                            <div class="food-image"> <img src="hotdog.png" alt="hot-dog"> </div>
+                            <div class="food-image"> <img src="hotdog.png" alt="hot-dog" loading="lazy" decoding="async" > </div>
                             <div class="food-info">
                                 <h3>Hot-dog simplu (250g)</h3>
                                 <p>
@@ -1648,7 +1662,7 @@
                         </article>
 
                         <article class="food-card" data-category="hot-dog">
-                            <div class="food-image"><img src="hotdogdublu.png" alt="hot-dogdublu"></div>
+                            <div class="food-image"><img src="hotdogdublu.png" alt="hot-dogdublu" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>Hot-dog dublu (350g)</h3>
                                 <p>
@@ -1658,10 +1672,10 @@
                             </div>
                         </article>
 
-                        
+
 
                         <article class="food-card" data-category="sandwich">
-                            <div class="food-image"><img src="sandwichsunca.png" alt="sandwichsunca"></div>
+                            <div class="food-image"><img src="sandwichsunca.png" alt="sandwichsunca" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>Sandwich cu șuncă</h3>
                                 <p>
@@ -1672,7 +1686,7 @@
                         </article>
 
                         <article class="food-card" data-category="sandwich">
-                            <div class="food-image"><img src="sandwichpieptpui.png" alt="sandwichpieptpui"></div>
+                            <div class="food-image"><img src="sandwichpieptpui.png" alt="sandwichpieptpui" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>Sandwich cu piept de pui (460g)</h3>
                                 <p>
@@ -1682,10 +1696,10 @@
                             </div>
                         </article>
 
-                        
+
 
                         <article class="food-card" data-category="specialitate">
-                            <div class="food-image"><img src="shaorma.png" alt="shaorma"></div>
+                            <div class="food-image"><img src="shaorma.png" alt="shaorma" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>Shaorma pui (460g)</h3>
                                 <p>
@@ -1696,7 +1710,7 @@
                         </article>
 
                         <article class="food-card" data-category="specialitate">
-                            <div class="food-image"><img src="kebabpui.png" alt="Kebab"></div>
+                            <div class="food-image"><img src="kebabpui.png" alt="Kebab" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>Kebab pui (500g)</h3>
                                 <p>
@@ -1706,10 +1720,10 @@
                             </div>
                         </article>
 
-                        
+
 
                         <article class="food-card" data-category="box">
-                            <div class="food-image"><img src="crispicartofi.png" alt="crispicartofi"></div>
+                            <div class="food-image"><img src="crispicartofi.png" alt="crispicartofi" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>Crispy + cartofi (400g)</h3>
                                 <p>
@@ -1720,7 +1734,7 @@
                         </article>
 
                         <article class="food-card" data-category="box">
-                            <div class="food-image"><img src="cascavalpane.png" alt="cascavalpane"></div>
+                            <div class="food-image"><img src="cascavalpane.png" alt="cascavalpane" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>Cașcaval pane + cartofi (400g)</h3>
                                 <p>(cașcaval pane,cartofi prajiti,sos la alegere)</p>
@@ -1729,7 +1743,7 @@
                         </article>
 
                         <article class="food-card" data-category="box">
-                            <div class="food-image"><img src="aripioaresicartofi.png" alt="aripioaresicartofi"></div>
+                            <div class="food-image"><img src="aripioaresicartofi.png" alt="aripioaresicartofi" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>Aripioare + cartofi (450g)</h3>
                                 <p>
@@ -1739,8 +1753,8 @@
                             </div>
                         </article>
                         <article class="food-card" data-category="minut">
-                            <div class="food-image"><img src="cartofiprajiti.png" alt="cartofiprajiti"></div>
-                            <div class="food-info" >
+                            <div class="food-image"><img src="cartofiprajiti.png" alt="cartofiprajiti" loading="lazy" decoding="async"></div>
+                            <div class="food-info">
                                 <h3>Cartofi prăjiți cu sare (150g)</h3>
                                 <p>
                                     (cartofi prăjiti)
@@ -1749,7 +1763,8 @@
                             </div>
                         </article>
                         <article class="food-card" data-category="minut">
-                            <div class="food-image"><img src="cartofiprajiticascaval.png" alt="cartofiprajiticascaval"></div>
+                            <div class="food-image"><img src="cartofiprajiticascaval.png" alt="cartofiprajiticascaval" loading="lazy" decoding="async">
+                            </div>
                             <div class="food-info">
                                 <h3>Cartofi prăjiți cu cașcaval (200g)</h3>
                                 <p>
@@ -1759,8 +1774,8 @@
                             </div>
                         </article>
                         <article class="food-card" data-category="salata">
-                            <div class="food-image"><img src="salatacrispy.png" alt="salatacrispy"></div>
-                            <div class="food-info" >
+                            <div class="food-image"><img src="salatacrispy.png" alt="salatacrispy"loading="lazy" decoding="async"></div>
+                            <div class="food-info">
                                 <h3>Salată crispy (600g)</h3>
                                 <p>
                                     (crispy de pui,salată eisberg,roșii,castravete,porumb,ceapă,sos la alegere)
@@ -1769,7 +1784,7 @@
                             </div>
                         </article>
                         <article class="food-card" data-category="salata">
-                            <div class="food-image"><img src="salatakebab.png" alt="salatakebab"></div>
+                            <div class="food-image"><img src="salatakebab.png" alt="salatakebab" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>Salată Kebab (600g)</h3>
                                 <p>
@@ -1779,73 +1794,73 @@
                             </div>
                         </article>
                         <article class="food-card" data-category="sos">
-                            <div class="food-image"><img src="ketchup.png" alt="ketchup"></div>
+                            <div class="food-image"><img src="ketchup.png" alt="ketchup" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>ketchup dulce/picant (80g)</h3>
-                                
+
                                 <div class="price">3 LEI</div>
                             </div>
                         </article>
                         <article class="food-card" data-category="sos">
-                            <div class="food-image"><img src="maioneza.png" alt="maioneza"></div>
+                            <div class="food-image"><img src="maioneza.png" alt="maioneza" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>Maioneză (80g)</h3>
-                                
+
                                 <div class="price">3 LEI</div>
                             </div>
                         </article>
                         <article class="food-card" data-category="sos">
-                            <div class="food-image"><img src="sosusturoi.png" alt="sosusturoi"></div>
+                            <div class="food-image"><img src="sosusturoi.png" alt="sosusturoi" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>Sos usturoi (80g)</h3>
-                                
+
                                 <div class="price">3 LEI</div>
                             </div>
                         </article>
                         <article class="food-card" data-category="sos">
-                            <div class="food-image"><img src="mustar.png" alt="mustar"></div>
+                            <div class="food-image"><img src="mustar.png" alt="mustar" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>Muștar (80g)</h3>
-                                
+
                                 <div class="price">3 LEI</div>
                             </div>
                         </article>
                         <article class="food-card" data-category="sos">
-                            <div class="food-image"><img src="sosstreetbox.png" alt="sosstreetbox"></div>
+                            <div class="food-image"><img src="sosstreetbox.png" alt="sosstreetbox" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>Sosul StreetBox(ușor picant) (80g)</h3>
-                               
+
                                 <div class="price">3 LEI</div>
                             </div>
                         </article>
                         <article class="food-card" data-category="băuturi-calde">
-                            <div class="food-image"><img src="espreso.png" alt="espreso"></div>
+                            <div class="food-image"><img src="espreso.png" alt="espreso" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>Cafea Espresso (150ml)</h3>
-                               
+
                                 <div class="price">6 LEI</div>
                             </div>
                         </article>
                         <article class="food-card" data-category="băuturi-calde">
-                            <div class="food-image"><img src="capucino.png" alt="capucino"></div>
+                            <div class="food-image"><img src="capucino.png" alt="capucino" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>Cafea Cappucino (200ml)</h3>
-                               
+
                                 <div class="price">8 LEI</div>
                             </div>
                         </article>
                         <article class="food-card" data-category="băuturi-calde">
-                            <div class="food-image"><img src="latte.png" alt="latte"></div>
+                            <div class="food-image"><img src="latte.png" alt="latte" loading="lazy" decoding="async"></div>
                             <div class="food-info">
                                 <h3>Cafea Latte (300ml)</h3>
-                               
+
                                 <div class="price">10 LEI</div>
                             </div>
                         </article>
-                        
 
 
-                        
+
+
 
                     </div>
                 </div>
@@ -1911,7 +1926,7 @@
                 📞 SUNĂ ȘI COMANDĂ
             </a>
             <div class="ghid">Apasă pe SUNĂ ȘI COMANDĂ !</div>
-           
+
         </section>
 
         <!-- CONTACT -->
