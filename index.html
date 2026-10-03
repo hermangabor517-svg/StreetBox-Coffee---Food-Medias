@@ -111,6 +111,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         :root {
@@ -150,7 +151,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background: rgba(5, 5, 5, .95);
+            background: #fdbd0df2;
             border-bottom: 1px solid #222;
             z-index: 1000;
         }
@@ -163,6 +164,7 @@
 
         .logo span {
             color: var(--verde);
+
         }
 
         .logo small {
@@ -177,6 +179,7 @@
             display: flex;
             align-items: center;
             gap: 30px;
+
         }
 
         nav a {
@@ -194,6 +197,18 @@
             color: var(--verde);
             padding: 11px 22px;
             border-radius: 30px;
+
+        }
+
+        @media(min-width:1100px) {
+            .order-btn {
+                border: 1px solid var(--verde);
+                color: black;
+                background: var(--verde);
+                padding: 11px 22px;
+                border-radius: 30px;
+
+            }
         }
 
         .order-btn:hover {
@@ -210,6 +225,9 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            background-color: black !important;
+
+
         }
 
         .hamburger span,
@@ -357,7 +375,7 @@
         .feature {
             padding: 35px;
             border: 1px solid #292929;
-            border-radius: 20px;
+            border-radius: 10px;
             text-align: center;
             background: #101010;
             transition: .3s;
@@ -579,8 +597,8 @@
         .contact-icon {
             width: 50px;
             height: 50px;
-            border-radius: 50%;
-            background: var(--verde);
+            border-radius: 33%;
+            background: #fdbd0df2;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1613,16 +1631,16 @@
 
             padding: 4px;
             border-radius: 20px;
-            background-color: #6ecb5f;
+            border: solid 2px #000;
 
             color: rgb(19, 19, 19);
             text-align: center;
         }
 
         #harta h2 {
-            font-size: 20px;
+            
             margin-bottom: 12px;
-            background-color: #5ff607;
+            
             padding: 2px;
             width: 100%;
             max-width: 140px;
@@ -1635,7 +1653,7 @@
             display: block;
             width: 100%;
             height: 300px;
-            border: 0;
+            
             border-radius: 12px;
 
         }
@@ -1747,11 +1765,11 @@
                         cu grijă ingrediente atent selecționate și punem preț
                         pe prospețime , gust și autenticitate.
                         <br>
-                        • Fiecare preparat este creat cu atenție, din ingrediente în care 
-                        avem încredere, pentru ca și tu să te bucuri de un gust desăvârșit, 
+                        • Fiecare preparat este creat cu atenție, din ingrediente în care
+                        avem încredere, pentru ca și tu să te bucuri de un gust desăvârșit,
                         de fiacare dată.
                         <br>
-                        • Pentru noi, un preparat bun începe cu ingrediente bune. 
+                        • Pentru noi, un preparat bun începe cu ingrediente bune.
                         iar diferența se simte de la prima îmbucătură.
                     </p>
                 </div>
@@ -2085,8 +2103,8 @@
                                     decoding="async">
                             </div>
                             <div class="food-info">
-                                <h3>Desert StreetBox </h3>
-                                <p>(claătite cu sosuri de Cioacolată,banană si biscuite)</p>
+                                <h3>Desert StreetBox (300g)</h3>
+                                <p>(clătite cu sosuri de cioacolată,banană si biscuite)</p>
 
                                 <div class="price">20 LEI</div>
                             </div>
@@ -2109,7 +2127,7 @@
                                 <div class="price">9 LEI</div>
                             </div>
                         </article>
-                        
+
                         <article class="food-card" data-category="racoritoare">
                             <div class="food-image"><img src="fanta.png" alt="fanta" loading="lazy" decoding="async">
                             </div>
@@ -2128,7 +2146,7 @@
                                 <div class="price">9 LEI</div>
                             </div>
                         </article>
-                        
+
                         <article class="food-card" data-category="racoritoare">
                             <div class="food-image"><img src="energizant.png" alt="energizant" loading="lazy"
                                     decoding="async">
@@ -2313,8 +2331,8 @@
                         </div>
                     </div>
                 </div>
-                <section id="harta">
-                    <h2>locatie Maps.</h2>
+                <section class="harta" id="harta">
+                    
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.757745940178!2d24.35101445373232!3d46.16083951228623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474b8f1231b18b6d%3A0xf42173bbf53e11b7!2sStreetBox%20Food%26Coffee!5e1!3m2!1sen!2sro!4v1789933137427!5m2!1sen!2sro"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
@@ -2373,7 +2391,7 @@
                     <h3>Social</h3>
                     <a href="https://www.instagram.com/streetbox.foodcoffee?stkn=eXdxb3prNmsyam9m">Instagram</a>
                     <a href="https://www.facebook.com/share/14qX76Uey92/">Facebook</a>
-                   
+
                 </div>
             </div>
             <div class="anpc">
