@@ -1028,6 +1028,69 @@
             }
         }
 
+        @media (min-width: 769px) and (max-width: 1100px) {
+            #meniu {
+                padding-left: 35px;
+                padding-right: 35px;
+            }
+
+            .menu-tabs {
+                justify-content: center;
+                gap: 10px;
+                flex-wrap: wrap;
+                overflow: visible;
+            }
+
+            .menu-tab {
+                flex-shrink: 0;
+                padding: 10px 16px;
+                font-size: 12px;
+                white-space: nowrap;
+            }
+
+            .menu-carousel {
+                gap: 10px;
+                width: 100%;
+            }
+
+            .carousel-window {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .carousel-track {
+                gap: 20px;
+            }
+
+            .food-card {
+                flex: 0 0 calc(50% - 10px);
+                min-width: 0;
+            }
+
+            .food-image {
+                height: 220px;
+            }
+
+            .food-info {
+                padding: 18px;
+            }
+
+            .food-info h3 {
+                font-size: 18px;
+                margin-top: 14px;
+            }
+
+            .food-info p {
+                font-size: 13px;
+            }
+
+            .carousel-btn {
+                width: 44px;
+                height: 44px;
+                font-size: 30px;
+            }
+        }
+
         @media (max-width: 450px) {
             .carousel-btn {
                 width: 35px;
@@ -1096,6 +1159,7 @@
         .section-title h2 {
             position: relative;
             display: inline-block;
+            font-family: 'Times New Roman', Times, serif;
         }
 
         .section-title h2::after {
@@ -1394,11 +1458,10 @@
             z-index: 2;
 
             background: radial-gradient(ellipse at center,
-                    transparent 35%,
-                    rgba(5, 5, 5, .25) 72%,
-                    #050505 100%);
+                    transparent 50%,
+                    #fdbd0dae 80%,
+                    #dede86 100%);
 
-            pointer-events: none;
         }
 
         .zoom-stage {
@@ -1638,9 +1701,9 @@
         }
 
         #harta h2 {
-            
+
             margin-bottom: 12px;
-            
+
             padding: 2px;
             width: 100%;
             max-width: 140px;
@@ -1653,7 +1716,7 @@
             display: block;
             width: 100%;
             height: 300px;
-            
+
             border-radius: 12px;
 
         }
@@ -2332,7 +2395,7 @@
                     </div>
                 </div>
                 <section class="harta" id="harta">
-                    
+
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.757745940178!2d24.35101445373232!3d46.16083951228623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474b8f1231b18b6d%3A0xf42173bbf53e11b7!2sStreetBox%20Food%26Coffee!5e1!3m2!1sen!2sro!4v1789933137427!5m2!1sen!2sro"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
