@@ -1037,6 +1037,10 @@
             .food-info {
                 padding: 22px;
             }
+            .anpc{
+                display: flex;
+                flex-direction: column;
+            }
         }
 
         @media (min-width: 769px) and (max-width: 1100px) {
@@ -1100,6 +1104,7 @@
                 height: 44px;
                 font-size: 30px;
             }
+
         }
 
         @media (max-width: 450px) {
@@ -1693,7 +1698,10 @@
 
         .anpc {
             display: flex;
+            flex-direction: column;
             width: 250px;
+            margin-left: auto;
+            margin-right: auto;
             height: 50px;
             margin-top: 10px;
             max-width: 100%;
@@ -2476,8 +2484,7 @@
 
                     <img src="ANPC1.jpeg" alt="anpc1" loading="lazy" decoding="async"
                         href="https://share.google/0Hm6hjA6gSWMEXHm4"></a>
-                <a href="https://reclamatiisal.anpc.ro">
-                    <img src="ANPC2.jpeg" alt="anpc2" loading="lazy" decoding="async"></a>
+                
             </div>
 
             <div class="date-firma">
@@ -2490,20 +2497,22 @@
 
             <style>
                 .date-firma {
-                    margin-top: 30px;
+                    margin-top: 60px;
                     padding: 20px;
-                    color: #ccc;
+                    color: #cccccc;
                     background: #171717;
                     border-top: 1px solid #333;
                     font-family: Arial, sans-serif;
                     font-size: 14px;
                     line-height: 1.8;
+                    border-radius: 30px;
                 }
 
                 .date-firma h3 {
                     margin: 0 0 12px;
-                    color: #fff;
+                    color: #e0dede;
                     font-size: 17px;
+                    text-align: center;
                 }
 
                 .date-firma p {
@@ -2512,7 +2521,7 @@
                 }
 
                 .date-firma strong {
-                    color: #fff;
+                    color:#e0dede;
                 }
             </style>
 
